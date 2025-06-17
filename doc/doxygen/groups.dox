@@ -1,0 +1,42 @@
+
+/**
+ * @defgroup grp_protocol_phyoip PHYoIP Protocol
+ * `#include <phyoip/protocol/phyoip.h>`
+ */
+
+/**
+ * @defgroup grp_protocol_cmp Control Message Protocol
+ * @ingroup grp_protocol_phyoip
+ * `#include <phyoip/protocol/cmp.h>`
+ */
+
+/**
+ * @defgroup grp_protocol_discop Server Discovery Protocol
+ * @ingroup grp_protocol_phyoip
+ * `#include <phyoip/protocol/discop.h>`
+ *
+ * The discovery protocol is using UDP.
+ *
+ * A server is not required to be discoverable (and implement this protocol). If a server does provide this feature, it
+ * should listen on port 50481.
+ *
+ * A server might periodically broadcast it's own discovery info.
+ */
+
+// /**
+//  * @defgroup grp_protocol_i2c I2C Protocol
+//  * @ingroup grp_protocol_phyoip
+//  * `#include <phyoip/protocol/i2c.h>`
+//  */
+
+// /**
+//  * @defgroup grp_protocol_spi SPI Protocol
+//  * @ingroup grp_protocol_phyoip
+//  * `#include <phyoip/protocol/spi.h>`
+//  */
+
+/**
+ * @defgroup grp_protocol_uart UART Protocol
+ * @ingroup grp_protocol_phyoip
+ * `#include <phyoip/protocol/uart.h>`
+ */

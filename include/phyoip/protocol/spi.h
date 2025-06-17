@@ -13,27 +13,29 @@ copyright
 #ifdef __cplusplus
 extern "C" {
 #endif
+#if 0 // tbd, just some ideas
+
+/*! \addtogroup grp_protocol_spi
+ * @{
+ */
 
 
-
-#if 0 // tbd, some ideas
-
-#define PHYOIP_SPI_HDR_SIZE (1)
 
 /**
  * @brief SPI protocol header.
  */
 struct phyoip_spihdr
 {
-    uint8_t sidx;   //!< slave index (to determine nCS pin)
     uint8_t hsize;  //!< header size in bytes
     uint16_t dsize; //!< data size in bytes
+    uint8_t sidx;   //!< slave index (to determine nCS pin)
 } __attribute__((packed));
 
+
+
+/*! @} */
+
 #endif
-
-
-
 #ifdef __cplusplus
 }
 #endif

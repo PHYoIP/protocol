@@ -14,6 +14,10 @@ copyright
 extern "C" {
 #endif
 
+/*! \addtogroup grp_protocol_cmp
+ * @{
+ */
+
 
 
 /**
@@ -21,9 +25,9 @@ extern "C" {
  */
 struct phyoip_cmphdr
 {
-    uint8_t type;   //!< message type
     uint8_t hsize;  //!< header size in bytes
     uint16_t dsize; //!< data size in bytes
+    uint8_t type;   //!< message type
 } __attribute__((packed));
 
 //! \name Message Type
@@ -32,11 +36,39 @@ struct phyoip_cmphdr
 #define PHYOIP_CMP_PEERINFO    (2)
 #define PHYOIP_CMP_REG         (3) //!< register client
 #define PHYOIP_CMP_ACK         (4) //!< register (not) acknowledge
+
+/**
+ * extension envelope
+ *
+ * Data must start with a `phyoip_xenvhdr` which might be expanded by the extension protocol.
+ *
+ * Might be used for implementation specific communications (e.g. client authentication).
+ */
+#define PHYOIP_CMP_XENV (5)
 /// @}
 
-/*
-    peer info data is the null terminated version string of the sender, e.g.: `1.2.3-alpha\0`
-*/
+
+
+/**
+ * @brief Peer info data.
+ *
+ * \b Name
+ * Null terminated name of the server/client implementation, names starting with `PHYoIP` are reserved for the official
+ * implementations.
+ *
+ * \b Version
+ * Null terminated semver string of the implementation.
+ *
+ * \b Description
+ * Null terminated arbitary description.
+ */
+struct phyoip_cmppi
+{
+    uint8_t phytype;   //!< physical interface type
+    uint16_t nameoffs; //!< name offset
+    uint16_t veroffs;  //!< version string offset
+    uint16_t descoffs; //!< description offset
+} __attribute__((packed));
 
 
 
@@ -89,6 +121,19 @@ struct phyoip_cmpack
 /// @}
 
 
+
+/**
+ * @brief Extension envelope header.
+ */
+struct phyoip_xenvhdr
+{
+    uint8_t hsize;  //!< header size in bytes
+    uint16_t dsize; //!< data size in bytes
+} __attribute__((packed));
+
+
+
+/*! @} */
 
 #ifdef __cplusplus
 }

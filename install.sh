@@ -17,7 +17,11 @@ binPath="${prefix}/bin"
 includePath="${prefix}/include"
 
 
-install -m 644 "./include/phyoip/protocol/*.h" "$includePath/phyoip/protocol" # TODO is this working? Does it create parent dirs?
+# TODO is this working? Does it create parent dirs?
+install -m 644 "./include/phyoip/protocol/bits/*.h" "$includePath/phyoip/protocol/bits"
+install -m 644 "./include/phyoip/protocol/cmp.h" "$includePath/phyoip/protocol"
+install -m 644 "./include/phyoip/protocol/phyoip.h" "$includePath/phyoip/protocol"
+install -m 644 "./include/phyoip/protocol/uart.h" "$includePath/phyoip/protocol"
 
 
 echo "done"
