@@ -1,6 +1,6 @@
 # PHYoIP
 
-Specification and C headers for the TCP application protocol.
+Specification and C headers for the TCP and UDP application protocols.
 
 
 

@@ -15,7 +15,7 @@
  * @ingroup grp_protocol_phyoip
  * `#include <phyoip/protocol/discop.h>`
  *
- * The discovery protocol is using UDP.
+ * The server discovery protocol is using UDP.
  *
  * A server is not required to be discoverable (and implement this protocol). If a server does provide this feature, it
  * should listen on port 50481.

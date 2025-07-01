@@ -71,7 +71,7 @@ extern "C" {
 
 #if ((PHYOIP_BIG_ENDIAN && ___PHYOIP_LITTLE_ENDIAN_was_defined) || (PHYOIP_LITTLE_ENDIAN && ___PHYOIP_BIG_ENDIAN_was_defined) || \
      (PHYOIP_BIG_ENDIAN && PHYOIP_LITTLE_ENDIAN))
-#error "what!?"
+#error "fatal error, please (if possible) investigate and open an issue"
 #endif
 
 #undef ___PHYOIP_BIG_ENDIAN_was_defined

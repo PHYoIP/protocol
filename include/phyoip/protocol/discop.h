@@ -46,7 +46,7 @@ struct phyoip_discophdr
 struct phyoip_discopinfo
 {
     uint16_t port;   //!< port on which the server is listening for TCP connections
-    uint16_t pioffs; //!< peer info offset in bytes (relative to data begin)
+    uint16_t pioffs; //!< peer info offset in bytes
 } __attribute__((packed));
 
 
