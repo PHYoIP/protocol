@@ -16,12 +16,16 @@ fi
 binPath="${prefix}/bin"
 includePath="${prefix}/include"
 
-
-# TODO is this working? Does it create parent dirs?
-install -m 644 "./include/phyoip/protocol/bits/*.h" "$includePath/phyoip/protocol/bits"
-install -m 644 "./include/phyoip/protocol/cmp.h" "$includePath/phyoip/protocol"
-install -m 644 "./include/phyoip/protocol/phyoip.h" "$includePath/phyoip/protocol"
-install -m 644 "./include/phyoip/protocol/uart.h" "$includePath/phyoip/protocol"
+protocolIncludePath="${includePath}/phyoip/protocol"
 
 
-echo "done"
+
+rm -rf "${protocolIncludePath}"
+
+install -m 644 -D -t "${protocolIncludePath}/bits" "./include/phyoip/protocol/bits/endian.h"
+install -m 644 -D -t "${protocolIncludePath}/bits" "./include/phyoip/protocol/bits/protocol-version.h"
+
+install -m 644 -D -t "${protocolIncludePath}" "./include/phyoip/protocol/cmp.h"
+install -m 644 -D -t "${protocolIncludePath}" "./include/phyoip/protocol/discop.h"
+install -m 644 -D -t "${protocolIncludePath}" "./include/phyoip/protocol/phyoip.h"
+install -m 644 -D -t "${protocolIncludePath}" "./include/phyoip/protocol/uart.h"
