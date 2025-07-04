@@ -24,8 +24,13 @@ extern "C" {
 #define PHYOIP_PROTOCOL_VERSION_MIN (0)
 
 
+#define PHYOIP_HDR_IDENTIFIER_SIZE (11)
 
-#define PHYOIP_HDR_IDENTIFIER_SIZE (11) // FF FF FF FF 50 48 59 6F 49 50 00
+// "\xFF\xFF\xFF\xFFPHYoIP"
+#define PHYOIP_HDR_IDENTIFIER_INITIALIZER_LIST                           \
+    {                                                                    \
+        0xFF, 0xFF, 0xFF, 0xFF, 0x50, 0x48, 0x59, 0x6F, 0x49, 0x50, 0x00 \
+    }
 
 /**
  * @brief PHYoIP protocol header.
