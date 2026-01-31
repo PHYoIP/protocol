@@ -41,16 +41,18 @@ struct phyoip_cmphdr
 #define PHYOIP_CMP_REGISTER    (3) ///< register a client (only sent by client)
 #define PHYOIP_CMP_ACK         (4) ///< register acknowledge (only sent by server)
 #define PHYOIP_CMP_DELIST      (5) ///< delist a client
+#define PHYOIP_CMP_XENV        (6) // see below
+/// @}
 
 /**
- * <b>Extension Envelope</b>
- *
- * Data must start with a `phyoip_xenvhdr`, which might be expanded by the extension protocol by increasing the `hsize` field.
+ * @def PHYOIP_CMP_XENV
+ * @brief Extension Envelope.
  *
  * Might be used for implementation specific communications (e.g. client authentication).
+ *
+ * Data must start with a `phyoip_xenvhdr`, which might be expanded by the extension protocol by increasing the
+ * `phyoip_xenvhdr::hsize` field.
  */
-#define PHYOIP_CMP_XENV (5)
-/// @}
 
 
 
@@ -63,26 +65,28 @@ struct ___phyoip_appversion
 /**
  * @brief Peer info data.
  *
- * \b Name
+ * \b Name:
  * Null terminated name of the server/client implementation, names starting with `PHYoIP` are reserved for the official
  * implementations.
  *
- * \b Version
+ * \b Version:
  * The version of the server/client implementation. Can be either a string or integer representation, or both. The
  * string representation (if set) must comply with _semver 2.0.0_. If both are set, the _major_ and _minor_ fields must
  * be identical for the respective representations.
  *
- * \b Description [optional]
+ * \b Description _optional_:
  * Null terminated arbitary description.
  */
 struct phyoip_cmppi
 {
     uint8_t proto;     ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
     uint16_t nameoffs; ///< name offset
+
     union {
         struct ___phyoip_appversion v;
         uint16_t raw;
-    } version;         ///< [optional] null or the version
+    } version; ///< [optional] null or the version
+
     uint16_t veroffs;  ///< [optional] null or version string offset
     uint16_t descoffs; ///< [optional] null or description offset
 } PHYOIP_ATTR_PACKED;
@@ -148,7 +152,7 @@ struct phyoip_xenvhdr
 
 
 //! \name Extension Supplier
-//! \section section_protocol_cmp_extsup Extension Supplier
+//! \subsection section_protocol_cmp_extsup Extension Supplier
 //!
 //! A supplier is a vendor or source of a client or server implementation.
 //!

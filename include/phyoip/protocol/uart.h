@@ -40,7 +40,7 @@ struct phyoip_uarthdr
      *
      * _optional_ May be zero or have a lower resolution than nanoseconds, depending on the platform.
      *
-     * See <tt><a href="https://man7.org/linux/man-pages/man3/timespec.3type.html" target="_blank">struct timespec</a></tt>.
+     * See <a href="https://man7.org/linux/man-pages/man3/timespec.3type.html" target="_blank"><tt>struct timespec</tt> (man7.org)</a>.
      */
     int32_t nsec;
 
@@ -53,7 +53,7 @@ struct phyoip_uarthdr
     uint8_t ___res  :7;
 #else
 #error "unknown endianness"
-    uint8_t ___res  :7; ///< bit 1..7 reserved for future use
+    uint8_t ___res  :7; ///< ***bit 1..7*** reserved for future use
     uint8_t ingress :1; ///< **bit 0** ingress/nEgress bit
 #endif
 

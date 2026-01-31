@@ -3,6 +3,6 @@
         "editor.formatOnSave": true,
     },
     "files.associations": {
-        "*.dox": "c",
+        "*.doxc": "c",
     }
 }

@@ -14,8 +14,14 @@ extern "C" {
 
 
 
+/*! \addtogroup grp_protocol_phyoip
+ * @{
+ */
+
 #define PHYOIP_PROTOCOL_VERSION_MAJ (0) // in experimental/development phase
 #define PHYOIP_PROTOCOL_VERSION_MIN (1)
+
+/*! @} */
 
 
 
