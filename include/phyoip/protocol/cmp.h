@@ -25,17 +25,17 @@ extern "C" {
  */
 struct phyoip_cmphdr
 {
-    uint8_t hsize;  //!< header size in bytes
-    uint16_t dsize; //!< data size in bytes
-    uint8_t type;   //!< message type
+    uint8_t hsize;  ///< header size in bytes
+    uint16_t dsize; ///< data size in bytes
+    uint8_t type;   ///< message type
 } __attribute__((packed));
 
 //! \name Message Type
 /// @{
 #define PHYOIP_CMP_REQPEERINFO (1)
 #define PHYOIP_CMP_PEERINFO    (2)
-#define PHYOIP_CMP_REGISTER    (3) //!< register a client (only sent by client)
-#define PHYOIP_CMP_ACK         (4) //!< register acknowledge (only sent by server)
+#define PHYOIP_CMP_REGISTER    (3) ///< register a client (only sent by client)
+#define PHYOIP_CMP_ACK         (4) ///< register acknowledge (only sent by server)
 #define PHYOIP_CMP_DELIST      (5) ///< delist a client
 
 /**
@@ -73,14 +73,14 @@ struct ___phyoip_appversion
  */
 struct phyoip_cmppi
 {
-    uint8_t proto;     //!< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
-    uint16_t nameoffs; //!< name offset
+    uint8_t proto;     ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
+    uint16_t nameoffs; ///< name offset
     union {
         struct ___phyoip_appversion v;
         uint16_t raw;
-    } version;         //!< [optional] null or the version
-    uint16_t veroffs;  //!< [optional] null or version string offset
-    uint16_t descoffs; //!< [optional] null or description offset
+    } version;         ///< [optional] null or the version
+    uint16_t veroffs;  ///< [optional] null or version string offset
+    uint16_t descoffs; ///< [optional] null or description offset
 } __attribute__((packed));
 
 
@@ -90,25 +90,25 @@ struct phyoip_cmppi
  */
 struct phyoip_cmpreg
 {
-    uint8_t proto;    //!< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
-    uint16_t clitype; //!< client type
+    uint8_t proto;    ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
+    uint16_t clitype; ///< client type
 } __attribute__((packed));
 
 //! \name Client Type
 /// @{
 // #define PHYOIP_CT_RES0  (0x0000 | PHYOIP_CTROLE_) // reserved as an invalid fallback if only PHYOIP_CTROLE_x is used by an implementation
-#define PHYOIP_CT_GC    (0x0001 | PHYOIP_CTROLE_SLAVE)                        //!< gateway client (reads from egress, writes to ingress)
-#define PHYOIP_CT_ROEC  (0x0002 | PHYOIP_CTROLE_SLAVE)                        //!< read only client (reads from egress)
-#define PHYOIP_CT_ROIC  (0x0003 | PHYOIP_CTROLE_MASTER)                       //!< read only client (reads from ingress)
-#define PHYOIP_CT_WOEC  (0x0004 | PHYOIP_CTROLE_MASTER)                       //!< write only client (writes to egress)
-#define PHYOIP_CT_WOIC  (0x0005 | PHYOIP_CTROLE_SLAVE)                        //!< write only client (writes to ingress)
-#define PHYOIP_CT_RWC   (0x0006 | PHYOIP_CTROLE_MASTER)                       //!< read/write client (reads from ingress, writes to egress)
-#define PHYOIP_CT_SNIFF (0x0007 | PHYOIP_CTROLE_MASTER | PHYOIP_CTROLE_SLAVE) //!< sniffer client (reads from ingress and egress)
+#define PHYOIP_CT_GC    (0x0001 | PHYOIP_CTROLE_SLAVE)                        ///< gateway client (reads from egress, writes to ingress)
+#define PHYOIP_CT_ROEC  (0x0002 | PHYOIP_CTROLE_SLAVE)                        ///< read only client (reads from egress)
+#define PHYOIP_CT_ROIC  (0x0003 | PHYOIP_CTROLE_MASTER)                       ///< read only client (reads from ingress)
+#define PHYOIP_CT_WOEC  (0x0004 | PHYOIP_CTROLE_MASTER)                       ///< write only client (writes to egress)
+#define PHYOIP_CT_WOIC  (0x0005 | PHYOIP_CTROLE_SLAVE)                        ///< write only client (writes to ingress)
+#define PHYOIP_CT_RWC   (0x0006 | PHYOIP_CTROLE_MASTER)                       ///< read/write client (reads from ingress, writes to egress)
+#define PHYOIP_CT_SNIFF (0x0007 | PHYOIP_CTROLE_MASTER | PHYOIP_CTROLE_SLAVE) ///< sniffer client (reads from ingress and egress)
 
 #define PHYOIP_CTMASK        (0x00FF)
 #define PHYOIP_CTROLE_MASK   (0xFF00)
-#define PHYOIP_CTROLE_MASTER (0x8000) //!< reads from ingress, writes to egress
-#define PHYOIP_CTROLE_SLAVE  (0x4000) //!< reads from egress, writes to ingress
+#define PHYOIP_CTROLE_MASTER (0x8000) ///< reads from ingress, writes to egress
+#define PHYOIP_CTROLE_SLAVE  (0x4000) ///< reads from egress, writes to ingress
 /// @}
 
 
@@ -136,10 +136,10 @@ struct phyoip_cmpack
  */
 struct phyoip_xenvhdr
 {
-    uint8_t hsize;     //!< header size in bytes
-    uint16_t dsize;    //!< data size in bytes
-    uint8_t optoffs;   //!< offset in bytes of the optional extension header fields, zero if none exist
-    uint16_t supplier; //!< \ref section_protocol_cmp_extsup
+    uint8_t hsize;     ///< header size in bytes
+    uint16_t dsize;    ///< data size in bytes
+    uint8_t optoffs;   ///< offset in bytes of the optional extension header fields, zero if none exist
+    uint16_t supplier; ///< \ref section_protocol_cmp_extsup
 } __attribute__((packed));
 
 
@@ -150,8 +150,8 @@ struct phyoip_xenvhdr
 //!
 /// @{
 #define PHYOIP_XSUPPLIER_PHYOIP (1)
-#define PHYOIP_XSUPPLIER_PRVMIN (0x2710) //!< first private/unregistered supplier code (10'000)
-#define PHYOIP_XSUPPLIER_PRVMAX (0x9C3F) //!< last private/unregistered supplier code (39'999)
+#define PHYOIP_XSUPPLIER_PRVMIN (0x2710) ///< first private/unregistered supplier code (10'000)
+#define PHYOIP_XSUPPLIER_PRVMAX (0x9C3F) ///< last private/unregistered supplier code (39'999)
 /// @}
 
 

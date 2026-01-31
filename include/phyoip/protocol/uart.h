@@ -27,10 +27,10 @@ extern "C" {
  */
 struct phyoip_uarthdr
 {
-    uint8_t hsize;  //!< header size in bytes
-    uint16_t dsize; //!< data size in bytes
+    uint8_t hsize;  ///< header size in bytes
+    uint16_t dsize; ///< data size in bytes
 
-    int64_t timestamp; //!< 64bit `time_t` timestamp of when the packet was received on the PHY interface, or created by a client respectively
+    int64_t timestamp; ///< 64bit `time_t` timestamp of when the packet was received on the PHY interface, or created by a client respectively
 
     /**
      * Adds higher resolution to `timestamp`.
@@ -51,8 +51,8 @@ struct phyoip_uarthdr
 #else
 #error "unknown endianness"
     // Doxygen also will end up here
-    unsigned int ___res  :7; //!< bit 1..7 reserved for future use
-    unsigned int ingress :1; //!< **bit 0** ingress/nEgress bit
+    unsigned int ___res  :7; ///< bit 1..7 reserved for future use
+    unsigned int ingress :1; ///< **bit 0** ingress/nEgress bit
 #endif
 
 } __attribute__((packed));

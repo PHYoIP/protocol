@@ -28,10 +28,10 @@ extern "C" {
  */
 struct phyoip_i2chdr
 {
-    uint8_t hsize;  //!< header size in bytes
-    uint16_t dsize; //!< data size in bytes
+    uint8_t hsize;  ///< header size in bytes
+    uint16_t dsize; ///< data size in bytes
 
-    uint8_t addr; //!< I2C device address
+    uint8_t addr; ///< I2C device address
 
 // flags
 #if PHYOIP_BIG_ENDIAN
@@ -43,8 +43,8 @@ struct phyoip_i2chdr
 #else
 #error "unknown endianness"
     // Doxygen also will end up here
-    unsigned int ___res :7; //!< bit 1..7 reserved for future use
-    unsigned int read   :1; //!< **bit 0** read/nWrite bit
+    unsigned int ___res :7; ///< bit 1..7 reserved for future use
+    unsigned int read   :1; ///< **bit 0** read/nWrite bit
 #endif
 
 } __attribute__((packed));

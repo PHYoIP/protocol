@@ -26,9 +26,9 @@ extern "C" {
  */
 struct phyoip_spihdr
 {
-    uint8_t hsize;  //!< header size in bytes
-    uint16_t dsize; //!< data size in bytes
-    uint8_t sidx;   //!< slave index (to determine nCS pin)
+    uint8_t hsize;  ///< header size in bytes
+    uint16_t dsize; ///< data size in bytes
+    uint8_t sidx;   ///< slave index (to determine nCS pin)
 } __attribute__((packed));
 
 

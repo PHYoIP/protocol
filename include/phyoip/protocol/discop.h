@@ -25,15 +25,15 @@ extern "C" {
  */
 struct phyoip_discophdr
 {
-    uint8_t hsize;  //!< header size in bytes
-    uint16_t dsize; //!< data size in bytes
+    uint8_t hsize;  ///< header size in bytes
+    uint16_t dsize; ///< data size in bytes
     uint8_t type;
 } __attribute__((packed));
 
 //! \name Type
 /// @{
 #define PHYOIP_DISCOP_SEEK (1)
-#define PHYOIP_DISCOP_INFO (2) //!< server info
+#define PHYOIP_DISCOP_INFO (2) ///< server info
 /// @}
 
 
@@ -45,8 +45,8 @@ struct phyoip_discophdr
  */
 struct phyoip_discopinfo
 {
-    uint16_t port;   //!< port on which the server is listening for TCP connections
-    uint16_t pioffs; //!< peer info offset in bytes
+    uint16_t port;   ///< port on which the server is listening for TCP connections
+    uint16_t pioffs; ///< peer info offset in bytes
 } __attribute__((packed));
 
 
