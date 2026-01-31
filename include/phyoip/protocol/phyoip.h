@@ -1,13 +1,15 @@
 /*
 author          Oliver Blaser
 date            15.06.2025
-copyright
+copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
 #ifndef IG_PHYOIP_PROTOCOL_PHYOIP_H
 #define IG_PHYOIP_PROTOCOL_PHYOIP_H
 
 #include <stdint.h>
+
+#include "bits/protocol-version.h"
 
 
 #ifdef __cplusplus
@@ -18,10 +20,6 @@ extern "C" {
  * @{
  */
 
-
-
-#define PHYOIP_PROTOCOL_VERSION_MAJ (1)
-#define PHYOIP_PROTOCOL_VERSION_MIN (0)
 
 
 #define PHYOIP_HDR_IDENTIFIER_SIZE (11)

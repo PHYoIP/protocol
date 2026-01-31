@@ -39,4 +39,10 @@
  * @defgroup grp_protocol_uart UART Protocol
  * @ingroup grp_protocol_phyoip
  * `#include <phyoip/protocol/uart.h>`
+ *
+ * Any UART alike interface e.g.:
+ *   - UART
+ *   - RS-232 (only Rx/Tx)
+ *   - RS-422
+ *   - RS-485
  */
