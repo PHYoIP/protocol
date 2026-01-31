@@ -1,7 +1,7 @@
 /*
 author          Oliver Blaser
 date            15.06.2025
-copyright
+copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
 #ifndef IG_PHYOIP_PROTOCOL_SPI_H
