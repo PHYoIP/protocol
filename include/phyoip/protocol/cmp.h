@@ -105,13 +105,13 @@ struct phyoip_cmpreg
 //! \name Client Type
 /// @{
 // #define PHYOIP_CT_RES0  (0x0000 | PHYOIP_CTROLE_) // reserved as an invalid fallback if only PHYOIP_CTROLE_x is used by an implementation
-#define PHYOIP_CT_GC    (0x0001 | PHYOIP_CTROLE_SLAVE)                        ///< gateway client (reads from egress, writes to ingress)
-#define PHYOIP_CT_ROEC  (0x0002 | PHYOIP_CTROLE_SLAVE)                        ///< read only client (reads from egress)
-#define PHYOIP_CT_ROIC  (0x0003 | PHYOIP_CTROLE_MASTER)                       ///< read only client (reads from ingress)
-#define PHYOIP_CT_WOEC  (0x0004 | PHYOIP_CTROLE_MASTER)                       ///< write only client (writes to egress)
-#define PHYOIP_CT_WOIC  (0x0005 | PHYOIP_CTROLE_SLAVE)                        ///< write only client (writes to ingress)
-#define PHYOIP_CT_RWC   (0x0006 | PHYOIP_CTROLE_MASTER)                       ///< read/write client (reads from ingress, writes to egress)
-#define PHYOIP_CT_SNIFF (0x0007 | PHYOIP_CTROLE_MASTER | PHYOIP_CTROLE_SLAVE) ///< sniffer client (reads from ingress and egress)
+#define PHYOIP_CT_RW    (0x0001 | PHYOIP_CTROLE_MASTER)                       ///< read/write client (reads from ingress, writes to egress)
+#define PHYOIP_CT_GW    (0x0002 | PHYOIP_CTROLE_SLAVE)                        ///< gateway client (reads from egress, writes to ingress)
+#define PHYOIP_CT_SNIFF (0x0003 | PHYOIP_CTROLE_MASTER | PHYOIP_CTROLE_SLAVE) ///< sniffer client (reads from ingress and egress)
+#define PHYOIP_CT_ROE   (0x0004 | PHYOIP_CTROLE_SLAVE)                        ///< read only egress
+#define PHYOIP_CT_ROI   (0x0005 | PHYOIP_CTROLE_MASTER)                       ///< read only ingress
+#define PHYOIP_CT_WOE   (0x0006 | PHYOIP_CTROLE_MASTER)                       ///< write only egress
+#define PHYOIP_CT_WOI   (0x0007 | PHYOIP_CTROLE_SLAVE)                        ///< write only ingress
 
 #define PHYOIP_CTMASK        (0x00FF)
 #define PHYOIP_CTROLE_MASK   (0xFF00)
