@@ -1,7 +1,7 @@
 /*
 author          Oliver Blaser
 date            15.06.2025
-copyright
+copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
 #ifndef IG_PHYOIP_PROTOCOL_CMP_H
@@ -34,8 +34,9 @@ struct phyoip_cmphdr
 /// @{
 #define PHYOIP_CMP_REQPEERINFO (1)
 #define PHYOIP_CMP_PEERINFO    (2)
-#define PHYOIP_CMP_REG         (3) //!< register client
-#define PHYOIP_CMP_ACK         (4) //!< register (not) acknowledge
+#define PHYOIP_CMP_REGISTER    (3) //!< register a client (only sent by client)
+#define PHYOIP_CMP_ACK         (4) //!< register acknowledge (only sent by server)
+#define PHYOIP_CMP_DELIST      (5) ///< delist a client
 
 /**
  * <b>Extension Envelope</b>
@@ -49,6 +50,12 @@ struct phyoip_cmphdr
 
 
 
+struct ___phyoip_appversion
+{
+    uint8_t maj;
+    uint8_t min;
+} __attribute__((packed));
+
 /**
  * @brief Peer info data.
  *
@@ -57,16 +64,22 @@ struct phyoip_cmphdr
  * implementations.
  *
  * \b Version
- * Null terminated semver string of the implementation.
+ * The version of the server/client implementation. Can be either a string or integer representation, or both. The
+ * string representation (if set) must comply with _semver 2.0.0_. If both are set, the _major_ and _minor_ fields must
+ * be identical for the respective representations.
  *
  * \b Description [optional]
  * Null terminated arbitary description.
  */
 struct phyoip_cmppi
 {
-    uint8_t phytype;   //!< physical interface type, see \ref section_protocol_cmp_phytype
+    uint8_t proto;     //!< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
     uint16_t nameoffs; //!< name offset
-    uint16_t veroffs;  //!< version string offset
+    union {
+        struct ___phyoip_appversion v;
+        uint16_t raw;
+    } version;         //!< [optional] null or the version
+    uint16_t veroffs;  //!< [optional] null or version string offset
     uint16_t descoffs; //!< [optional] null or description offset
 } __attribute__((packed));
 
@@ -77,17 +90,9 @@ struct phyoip_cmppi
  */
 struct phyoip_cmpreg
 {
-    uint8_t phytype;  //!< physical interface type, see \ref section_protocol_cmp_phytype
+    uint8_t proto;    //!< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
     uint16_t clitype; //!< client type
 } __attribute__((packed));
-
-//! \name Physical Interface Type
-//! \section section_protocol_cmp_phytype Physical Interface Type
-/// @{
-#define PHYOIP_PHY_UART (1) //!< any UART alike interface (UART, RS-232 only with Rx/Tx, RS-422, RS-485, ...)
-// #define PHYOIP_PHY_I2C  (2)      reserved until it's defined
-// #define PHYOIP_PHY_SPI  (3)      reserved until it's defined
-/// @}
 
 //! \name Client Type
 /// @{
@@ -102,8 +107,8 @@ struct phyoip_cmpreg
 
 #define PHYOIP_CTMASK        (0x00FF)
 #define PHYOIP_CTROLE_MASK   (0xFF00)
-#define PHYOIP_CTROLE_MASTER (0x8000)
-#define PHYOIP_CTROLE_SLAVE  (0x4000)
+#define PHYOIP_CTROLE_MASTER (0x8000) //!< reads from ingress, writes to egress
+#define PHYOIP_CTROLE_SLAVE  (0x4000) //!< reads from egress, writes to ingress
 /// @}
 
 
@@ -118,9 +123,10 @@ struct phyoip_cmpack
 
 //! \name Acknowledge Status
 /// @{
-#define PHYOIP_ACK_OK    (0)
-#define PHYOIP_ACK_ERROR (1)
-// maybe some more granular server errors (rejected, retry, ...)
+#define PHYOIP_ACK_OK    (0) ///< client accepted
+#define PHYOIP_ACK_ERROR (1) ///< general error
+#define PHYOIP_ACK_PROTO (2) ///< the server does not support the requested protocol
+#define PHYOIP_ACK_ROLE  (3) ///< the server can't accept another client with the specified client type
 /// @}
 
 
