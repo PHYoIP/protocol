@@ -9,10 +9,14 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 
 #include <stdint.h>
 
+#include "bits/macros.h"
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+PHYOIP_PACK_PUSH();
 
 /*! \addtogroup grp_protocol_cmp
  * @{
@@ -28,7 +32,7 @@ struct phyoip_cmphdr
     uint8_t hsize;  ///< header size in bytes
     uint16_t dsize; ///< data size in bytes
     uint8_t type;   ///< message type
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 //! \name Message Type
 /// @{
@@ -54,7 +58,7 @@ struct ___phyoip_appversion
 {
     uint8_t maj;
     uint8_t min;
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 /**
  * @brief Peer info data.
@@ -81,7 +85,7 @@ struct phyoip_cmppi
     } version;         ///< [optional] null or the version
     uint16_t veroffs;  ///< [optional] null or version string offset
     uint16_t descoffs; ///< [optional] null or description offset
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 
 
@@ -92,7 +96,7 @@ struct phyoip_cmpreg
 {
     uint8_t proto;    ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
     uint16_t clitype; ///< client type
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 //! \name Client Type
 /// @{
@@ -119,7 +123,7 @@ struct phyoip_cmpreg
 struct phyoip_cmpack
 {
     uint8_t status;
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 //! \name Acknowledge Status
 /// @{
@@ -140,7 +144,7 @@ struct phyoip_xenvhdr
     uint16_t dsize;    ///< data size in bytes
     uint8_t optoffs;   ///< offset in bytes of the optional extension header fields, zero if none exist
     uint16_t supplier; ///< \ref section_protocol_cmp_extsup
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 
 //! \name Extension Supplier
@@ -157,6 +161,8 @@ struct phyoip_xenvhdr
 
 
 /*! @} */
+
+PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }

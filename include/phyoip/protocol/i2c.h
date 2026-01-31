@@ -10,11 +10,15 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 #include <stdint.h>
 
 #include "bits/endian.h"
+#include "bits/macros.h"
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+PHYOIP_PACK_PUSH();
+
 #if 0 // tbd, just some ideas
 
 /*! \addtogroup grp_protocol_i2c
@@ -35,25 +39,27 @@ struct phyoip_i2chdr
 
 // flags
 #if PHYOIP_BIG_ENDIAN
-    unsigned int ___res :7;
-    unsigned int read   :1;
+    uint8_t ___res :7;
+    uint8_t read   :1;
 #elif PHYOIP_LITTLE_ENDIAN
-    unsigned int read   :1;
-    unsigned int ___res :7;
+    uint8_t read   :1;
+    uint8_t ___res :7;
 #else
 #error "unknown endianness"
-    // Doxygen also will end up here
-    unsigned int ___res :7; ///< bit 1..7 reserved for future use
-    unsigned int read   :1; ///< **bit 0** read/nWrite bit
+    uint8_t ___res :7; ///< bit 1..7 reserved for future use
+    uint8_t read   :1; ///< **bit 0** read/nWrite bit
 #endif
 
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 
 
 /*! @} */
 
 #endif
+
+PHYOIP_PACK_POP();
+
 #ifdef __cplusplus
 }
 #endif

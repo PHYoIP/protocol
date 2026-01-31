@@ -9,10 +9,15 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 
 #include <stdint.h>
 
+#include "bits/macros.h"
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+PHYOIP_PACK_PUSH();
+
 #if 0 // tbd, just some ideas
 
 /*! \addtogroup grp_protocol_spi
@@ -29,13 +34,16 @@ struct phyoip_spihdr
     uint8_t hsize;  ///< header size in bytes
     uint16_t dsize; ///< data size in bytes
     uint8_t sidx;   ///< slave index (to determine nCS pin)
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 
 
 /*! @} */
 
 #endif
+
+PHYOIP_PACK_POP();
+
 #ifdef __cplusplus
 }
 #endif

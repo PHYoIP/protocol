@@ -9,10 +9,14 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 
 #include <stdint.h>
 
+#include "bits/macros.h"
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+PHYOIP_PACK_PUSH();
 
 /*! \addtogroup grp_protocol_discop
  * @{
@@ -28,7 +32,7 @@ struct phyoip_discophdr
     uint8_t hsize;  ///< header size in bytes
     uint16_t dsize; ///< data size in bytes
     uint8_t type;
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 //! \name Type
 /// @{
@@ -47,11 +51,13 @@ struct phyoip_discopinfo
 {
     uint16_t port;   ///< port on which the server is listening for TCP connections
     uint16_t pioffs; ///< peer info offset in bytes
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 
 
 /*! @} */
+
+PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }

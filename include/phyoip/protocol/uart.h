@@ -10,11 +10,14 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 #include <stdint.h>
 
 #include "bits/endian.h"
+#include "bits/macros.h"
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+PHYOIP_PACK_PUSH();
 
 /*! \addtogroup grp_protocol_uart
  * @{
@@ -43,23 +46,24 @@ struct phyoip_uarthdr
 
 // flags
 #if PHYOIP_BIG_ENDIAN
-    unsigned int ___res  :7;
-    unsigned int ingress :1;
+    uint8_t ___res  :7;
+    uint8_t ingress :1;
 #elif PHYOIP_LITTLE_ENDIAN
-    unsigned int ingress :1;
-    unsigned int ___res  :7;
+    uint8_t ingress :1;
+    uint8_t ___res  :7;
 #else
 #error "unknown endianness"
-    // Doxygen also will end up here
-    unsigned int ___res  :7; ///< bit 1..7 reserved for future use
-    unsigned int ingress :1; ///< **bit 0** ingress/nEgress bit
+    uint8_t ___res  :7; ///< bit 1..7 reserved for future use
+    uint8_t ingress :1; ///< **bit 0** ingress/nEgress bit
 #endif
 
-} __attribute__((packed));
+} PHYOIP_ATTR_PACKED;
 
 
 
 /*! @} */
+
+PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }
