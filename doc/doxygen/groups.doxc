@@ -5,6 +5,12 @@
  */
 
 /**
+ * @defgroup grp_protocol_ports Ports
+ * @ingroup grp_protocol_phyoip
+ * `#include <phyoip/protocol/ports.h>`
+ */
+
+/**
  * @defgroup grp_protocol_cmp Control Message Protocol
  * @ingroup grp_protocol_phyoip
  * `#include <phyoip/protocol/cmp.h>`
@@ -18,7 +24,7 @@
  * The server discovery protocol is using UDP.
  *
  * A server is not required to be discoverable (and implement this protocol). If a server does provide this feature, it
- * should listen on port 50481.
+ * should listen on at least one of the defined \ref grp_protocol_ports "ports".
  *
  * A server might periodically broadcast it's own discovery info.
  */

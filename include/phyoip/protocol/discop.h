@@ -10,6 +10,7 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 #include <stdint.h>
 
 #include "bits/macros.h"
+#include "bits/ports-discop.h"
 
 
 #ifdef __cplusplus
