@@ -1,6 +1,6 @@
 /*
 author          Oliver Blaser
-date            16.06.2025
+date            07.02.2026
 copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
@@ -50,8 +50,9 @@ struct phyoip_discophdr
  */
 struct phyoip_discopinfo
 {
-    uint16_t port;   ///< port on which the server is listening for TCP connections
-    uint16_t pioffs; ///< peer info offset in bytes
+    uint16_t port;      ///< port on which the server is listening for TCP connections
+    uint16_t discoport; ///< port on which the server is listening for the \ref grp_protocol_discop
+    uint16_t pioffs;    ///< peer info offset in bytes
 } ___PHYOIP_ATTR_PACKED;
 
 
