@@ -16,7 +16,7 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 extern "C" {
 #endif
 
-PHYOIP_PACK_PUSH();
+___PHYOIP_PACK_PUSH();
 
 #if 0 // tbd, just some ideas
 
@@ -34,7 +34,7 @@ struct phyoip_spihdr
     uint8_t hsize;  ///< header size in bytes
     uint16_t dsize; ///< data size in bytes
     uint8_t sidx;   ///< slave index (to determine nCS pin)
-} PHYOIP_ATTR_PACKED;
+} ___PHYOIP_ATTR_PACKED;
 
 
 
@@ -42,7 +42,7 @@ struct phyoip_spihdr
 
 #endif
 
-PHYOIP_PACK_POP();
+___PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }

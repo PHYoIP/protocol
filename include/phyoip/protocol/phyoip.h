@@ -18,7 +18,7 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 extern "C" {
 #endif
 
-PHYOIP_PACK_PUSH();
+___PHYOIP_PACK_PUSH();
 
 /*! \addtogroup grp_protocol_phyoip
  * @{
@@ -44,7 +44,7 @@ struct phyoiphdr
     uint8_t vermin; ///< PHYoIP protocol version minor
     uint8_t hsize;  ///< header size in bytes
     uint8_t proto;  ///< protocol
-} PHYOIP_ATTR_PACKED;
+} ___PHYOIP_ATTR_PACKED;
 
 //! \name Packet Type
 /// @{
@@ -59,7 +59,7 @@ struct phyoiphdr
 
 /*! @} */
 
-PHYOIP_PACK_POP();
+___PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }

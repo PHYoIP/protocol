@@ -17,7 +17,7 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 extern "C" {
 #endif
 
-PHYOIP_PACK_PUSH();
+___PHYOIP_PACK_PUSH();
 
 #if 0 // tbd, just some ideas
 
@@ -50,7 +50,7 @@ struct phyoip_i2chdr
     uint8_t read   :1; ///< **bit 0** read/nWrite bit
 #endif
 
-} PHYOIP_ATTR_PACKED;
+} ___PHYOIP_ATTR_PACKED;
 
 
 
@@ -58,7 +58,7 @@ struct phyoip_i2chdr
 
 #endif
 
-PHYOIP_PACK_POP();
+___PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }

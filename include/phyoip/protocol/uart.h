@@ -17,7 +17,7 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 extern "C" {
 #endif
 
-PHYOIP_PACK_PUSH();
+___PHYOIP_PACK_PUSH();
 
 /*! \addtogroup grp_protocol_uart
  * @{
@@ -57,13 +57,13 @@ struct phyoip_uarthdr
     uint8_t ingress :1; ///< **bit 0** ingress/nEgress bit
 #endif
 
-} PHYOIP_ATTR_PACKED;
+} ___PHYOIP_ATTR_PACKED;
 
 
 
 /*! @} */
 
-PHYOIP_PACK_POP();
+___PHYOIP_PACK_POP();
 
 #ifdef __cplusplus
 }
