@@ -66,8 +66,7 @@ struct ___phyoip_appversion
  * @brief Peer info data.
  *
  * \b Name:
- * Null terminated name of the server/client implementation, names starting with `PHYoIP` are reserved for the official
- * implementations.
+ * Null terminated name of the server/client implementation.
  *
  * \b Version:
  * The version of the server/client implementation. Can be either a string or integer representation, or both. The
@@ -80,16 +79,31 @@ struct ___phyoip_appversion
 struct phyoip_cmppi
 {
     uint8_t proto;     ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
-    uint16_t nameoffs; ///< name offset
+    uint16_t supplier; ///< \ref section_protocol_cmp_supplierid
+    uint16_t nameoffs; ///< [optional] null or name offset
 
     union {
         struct ___phyoip_appversion v;
         uint16_t raw;
-    } version; ///< [optional] null or the version
+    } version; ///< [optional] null (`veroffs` must be set) or the version
 
-    uint16_t veroffs;  ///< [optional] null or version string offset
+    uint16_t veroffs;  ///< [optional] null (`version` must be set) or version string offset
     uint16_t descoffs; ///< [optional] null or description offset
 } ___PHYOIP_ATTR_PACKED;
+
+//! \name Supplier
+//! \subsection section_protocol_cmp_supplierid Supplier ID
+//!
+//! A supplier is a vendor or source of a client or server implementation.
+//!
+//! If you are not listed, the value must be in range [`PHYOIP_SUPPLIER_UNREGMIN`, `PHYOIP_SUPPLIER_UNREGMAX`].
+//!
+/// @{
+#define PHYOIP_SUPPLIER_PHYOIP (1)
+
+#define PHYOIP_SUPPLIER_UNREGMIN (0x2710) ///< first unregistered supplier code (10'000)
+#define PHYOIP_SUPPLIER_UNREGMAX (0x9C3F) ///< last unregistered supplier code (39'999)
+/// @}
 
 
 
@@ -147,20 +161,8 @@ struct phyoip_xenvhdr
     uint8_t hsize;     ///< header size in bytes
     uint16_t dsize;    ///< data size in bytes
     uint8_t optoffs;   ///< offset in bytes of the optional extension header fields, zero if none exist
-    uint16_t supplier; ///< \ref section_protocol_cmp_extsup
+    uint16_t supplier; ///< \ref section_protocol_cmp_supplierid
 } ___PHYOIP_ATTR_PACKED;
-
-
-//! \name Extension Supplier
-//! \subsection section_protocol_cmp_extsup Extension Supplier
-//!
-//! A supplier is a vendor or source of a client or server implementation.
-//!
-/// @{
-#define PHYOIP_XSUPPLIER_PHYOIP (1)
-#define PHYOIP_XSUPPLIER_PRVMIN (0x2710) ///< first private/unregistered supplier code (10'000)
-#define PHYOIP_XSUPPLIER_PRVMAX (0x9C3F) ///< last private/unregistered supplier code (39'999)
-/// @}
 
 
 
