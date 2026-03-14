@@ -56,7 +56,7 @@ struct phyoip_cmphdr
 
 
 
-struct ___phyoip_appversion
+struct ___phyoip_mmver
 {
     uint8_t maj;
     uint8_t min;
@@ -78,12 +78,12 @@ struct ___phyoip_appversion
  */
 struct phyoip_cmppi
 {
-    uint8_t proto;     ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
+    uint8_t proto;     ///< \ref section_protocol_protocol
     uint16_t supplier; ///< \ref section_protocol_cmp_supplierid
     uint16_t nameoffs; ///< [optional] null or name offset
 
     union {
-        struct ___phyoip_appversion v;
+        struct ___phyoip_mmver v;
         uint16_t raw;
     } version; ///< [optional] null (`veroffs` must be set) or the version
 
@@ -91,7 +91,7 @@ struct phyoip_cmppi
     uint16_t descoffs; ///< [optional] null or description offset
 } ___PHYOIP_ATTR_PACKED;
 
-//! \name Supplier
+//! \name Supplier ID
 //! \subsection section_protocol_cmp_supplierid Supplier ID
 //!
 //! A supplier is a vendor or source of a client or server implementation.
@@ -112,7 +112,7 @@ struct phyoip_cmppi
  */
 struct phyoip_cmpreg
 {
-    uint8_t proto;    ///< physical interface type or protocol to be used, e.g. `PHYOIP_PROTO_UART`
+    uint8_t proto;    ///< \ref section_protocol_protocol "protocol" to be used by the client
     uint16_t clitype; ///< client type
 } ___PHYOIP_ATTR_PACKED;
 

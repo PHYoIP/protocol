@@ -12,12 +12,12 @@ copyright       MIT - Copyright (c) 2026 Oliver Blaser
 #ifdef _MSC_VER
 
 #define ___PHYOIP_ATTR_PACKED
-#define ___PHYOIP_PACK_PUSH()   __pragma(pack(push, 1))
-#define ___PHYOIP_PACK_POP() __pragma(pack(pop))
+#define ___PHYOIP_PACK_PUSH() __pragma(pack(push, 1))
+#define ___PHYOIP_PACK_POP()  __pragma(pack(pop))
 
 #else // assuming GCC or compatible
 
-#define ___PHYOIP_ATTR_PACKED __attribute__((packed))
+#define ___PHYOIP_ATTR_PACKED __attribute__((packed, aligned(1)))
 #define ___PHYOIP_PACK_PUSH()
 #define ___PHYOIP_PACK_POP()
 

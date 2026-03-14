@@ -46,7 +46,8 @@ struct phyoiphdr
     uint8_t proto;  ///< protocol
 } ___PHYOIP_ATTR_PACKED;
 
-//! \name Packet Type
+//! \name Protocol
+//! \subsection section_protocol_protocol Protocol
 /// @{
 #define PHYOIP_PROTO_CMP    (0x01) ///< \ref grp_protocol_cmp
 #define PHYOIP_PROTO_DISCOP (0x02) ///< \ref grp_protocol_discop

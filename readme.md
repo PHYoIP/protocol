@@ -39,7 +39,7 @@ sequenceDiagram
     participant S as Server
     participant C as Client
     C ->>+ S: PHYOIP_CMP_REGISTER
-    S ->>- C: PHYOIP_CMP_ACK
+    S ->>- C: PHYOIP_CMP_ACK + PHYOIP_ACK_OK
     Note over S,C: normal operation, e.g.:
     S -->> C: PHYOIP_PROTO_UART
     C -->> S: PHYOIP_PROTO_UART
@@ -53,3 +53,5 @@ sequenceDiagram
     participant P as Peer
     I ->> P: PHYOIP_CMP_DELIST
 ```
+The `PHYOIP_CMP_DELIST` message shall not be sent if the server did not accept the connection (status in
+`PHYOIP_CMP_ACK` was not `PHYOIP_ACK_OK`)
