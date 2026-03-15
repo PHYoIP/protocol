@@ -70,8 +70,7 @@ struct ___phyoip_mmver
  *
  * \b Version:
  * The version of the server/client implementation. Can be either a string or integer representation, or both. The
- * string representation (if set) must comply with _semver 2.0.0_. If both are set, the _major_ and _minor_ fields must
- * be identical for the respective representations.
+ * string representation should comply with _semver 2.0.0_.
  *
  * \b Description _optional_:
  * Null terminated arbitary description.
