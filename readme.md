@@ -22,14 +22,14 @@ flowchart TD
     WOE(WOE) -- eg --> SRV
     WOI(WOI) -- in --> SRV
 ```
-| abbr. | Description                                                |
-|:-----:|:-----------------------------------------------------------|
-|  eg   | egress packages (i.e. from PC program to external device)  |
-|  in   | ingress packages (i.e. from external device to PC program) |
-|  GW   | gateway client                                             |
-|  RW   | read/write client                                          |
-|  RO*  | read-only client                                           |
-|  WO*  | write-only client                                          |
+| abbr. | Description                                               |
+|:-----:|:----------------------------------------------------------|
+|  eg   | egress packets (i.e. from PC program to external device)  |
+|  in   | ingress packets (i.e. from external device to PC program) |
+|  GW   | gateway client                                            |
+|  RW   | read/write client                                         |
+|  RO*  | read-only client                                          |
+|  WO*  | write-only client                                         |
 
 Client types `PHYOIP_CT_...` are defined in [_phyoip/protocol/cmp.h_](./include/phyoip/protocol/cmp.h).
 
