@@ -1,6 +1,6 @@
 /*
 author          Oliver Blaser
-date            12.04.2026
+date            13.04.2026
 copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
@@ -117,7 +117,6 @@ struct phyoip_cmpreg
 
 //! \name Client Type
 /// @{
-// #define PHYOIP_CT_RES0  (0x0000 | PHYOIP_CTPERM_) // reserved as an invalid fallback if only PHYOIP_CTPERM_x is used by an implementation
 #define PHYOIP_CT_RW    (0x0001 | PHYOIP_CTPERM_RI | PHYOIP_CTPERM_WE) ///< read/write client (reads from ingress, writes to egress)
 #define PHYOIP_CT_GW    (0x0002 | PHYOIP_CTPERM_RE | PHYOIP_CTPERM_WI) ///< gateway client (reads from egress, writes to ingress)
 #define PHYOIP_CT_SNIFF (0x0003 | PHYOIP_CTPERM_RE | PHYOIP_CTPERM_RI) ///< sniffer client (reads from ingress and egress)
@@ -132,6 +131,7 @@ struct phyoip_cmpreg
 #define PHYOIP_CTPERM_WE   (0x4000) ///< write egress
 #define PHYOIP_CTPERM_RI   (0x2000) ///< read ingress
 #define PHYOIP_CTPERM_WI   (0x1000) ///< write ingress
+#define PHYOIP_CTPERM_NONE (0x0000) ///< explicitly no permissions
 /// @}
 
 
@@ -149,7 +149,7 @@ struct phyoip_cmpack
 #define PHYOIP_ACK_OK    (0) ///< client accepted
 #define PHYOIP_ACK_ERROR (1) ///< general error
 #define PHYOIP_ACK_PROTO (2) ///< the server does not support the requested protocol
-#define PHYOIP_ACK_PERM  (3) ///< the server can't accept another client with the requested permission
+#define PHYOIP_ACK_PERM  (3) ///< the server can't accept another client with the requested permissions
 /// @}
 
 
