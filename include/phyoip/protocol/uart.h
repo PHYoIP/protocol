@@ -69,4 +69,4 @@ ___PHYOIP_PACK_POP();
 }
 #endif
 
-#endif // IG_PHYOIP_PROTOCOL_I2C_H
+#endif // IG_PHYOIP_PROTOCOL_UART_H

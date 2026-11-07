@@ -1,11 +1,11 @@
 /*
 author          Oliver Blaser
-date            07.02.2026
+date            06.11.2026
 copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
-#ifndef IG_PHYOIP_PROTOCOL_BITS_PORTS_H
-#define IG_PHYOIP_PROTOCOL_BITS_PORTS_H
+#ifndef IG_PHYOIP_PROTOCOL_BITS_PORTSPHYOIP_H
+#define IG_PHYOIP_PROTOCOL_BITS_PORTSPHYOIP_H
 
 
 #ifdef __cplusplus
@@ -18,7 +18,7 @@ extern "C" {
  * @{
  */
 
-#define PHYOIP_DEFAULT_PORT (5055) ///< default port
+#define PHYOIP_DEFAULT_PORT (5531) ///< default port
 
 /*! @} */
 
@@ -28,4 +28,4 @@ extern "C" {
 }
 #endif
 
-#endif // IG_PHYOIP_PROTOCOL_BITS_PORTS_H
+#endif // IG_PHYOIP_PROTOCOL_BITS_PORTSPHYOIP_H

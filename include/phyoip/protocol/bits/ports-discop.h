@@ -1,6 +1,6 @@
 /*
 author          Oliver Blaser
-date            07.02.2026
+date            06.11.2026
 copyright       MIT - Copyright (c) 2026 Oliver Blaser
 */
 
@@ -18,8 +18,7 @@ extern "C" {
  * @{
  */
 
-#define PHYOIP_DISCOP_PORT_PRI (50481) ///< primary port for the \ref grp_protocol_discop
-#define PHYOIP_DISCOP_PORT_SEC (50482) ///< secondary port for the \ref grp_protocol_discop
+#define PHYOIP_DISCOP_DEFAULT_PORT (5532) ///< default port for the \ref grp_protocol_discop
 
 /*! @} */
 
